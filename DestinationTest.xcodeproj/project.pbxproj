@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE732A272273533A00FB6659 /* DestinationTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DestinationTest.entitlements; sourceTree = "<group>"; };
 		DEE0FEC42270F981000051FF /* DestinationTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DestinationTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEE0FEC72270F981000051FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEE0FEC92270F981000051FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 		DEE0FEC62270F981000051FF /* DestinationTest */ = {
 			isa = PBXGroup;
 			children = (
+				DE732A272273533A00FB6659 /* DestinationTest.entitlements */,
 				DEE0FEC72270F981000051FF /* AppDelegate.swift */,
 				DEE0FEC92270F981000051FF /* ViewController.swift */,
 				DEE0FECB2270F981000051FF /* Main.storyboard */,
@@ -193,6 +195,14 @@
 				TargetAttributes = {
 					DEE0FEC32270F981000051FF = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					DEE0FED72270F982000051FF = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -432,16 +442,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DestinationTest/DestinationTest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LQUE8QE5D8;
 				INFOPLIST_FILE = DestinationTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DestinationTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DestinationTest.mobilex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -449,16 +462,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DestinationTest/DestinationTest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LQUE8QE5D8;
 				INFOPLIST_FILE = DestinationTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DestinationTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DestinationTest.mobilex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

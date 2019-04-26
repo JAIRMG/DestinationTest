@@ -13,8 +13,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        let userDefaults = UserDefaults(suiteName: "group.com.mobilex")
+        if let testUserId = userDefaults?.object(forKey: "DynamicVector") as? String {
+            print("User Id: \(testUserId)")
+        }
+        
     }
 
 
 }
+
 

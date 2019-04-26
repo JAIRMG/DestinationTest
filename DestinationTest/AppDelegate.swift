@@ -41,6 +41,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
+    //OPENED VIA URL SCHEME
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        //let urlComponents = NSURLComponents(url: url, resolvingAgainstBaseURL: false)
+        //let items = (urlComponents?.queryItems)! as [NSURLQueryItem]
+        var queryStrings = [String: Any]()
+        if (url.scheme == "com.mobilexParameter") {
+
+            guard let urlQuery = url.query else {
+                print("url error, there are no parameters")
+                return false
+            }
+            
+            for pair in urlQuery.components(separatedBy: "&") {                
+                
+                if pair.components(separatedBy: "=").count != 2 {
+                    print("key=value form incorrect")
+                    return false
+                }
+                
+                let key = pair.components(separatedBy: "=")[0]
+                
+                let value = pair
+                    .components(separatedBy:"=")[1]
+                    .replacingOccurrences(of: "+", with: " ")
+                    .removingPercentEncoding ?? ""
+                
+                queryStrings[key] = value
+            }
+            
+            print(queryStrings)
+            //Change controller
+            //example:
+            /*
+             let vc = UIViewController()
+             vc.view.backgroundColor = color
+             vc.title = vcTitle
+             let navController = UINavigationController(rootViewController: vc)
+             let barButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(dismiss))
+             vc.navigationItem.leftBarButtonItem = barButtonItem
+             self.window?.rootViewController?.presentViewController(navController, animated: true, completion: nil)
+ 
+ 
+            */
+            return true
+        }
+        
+        
+        
+        return false
+    }
+    
 
 }
+
 
