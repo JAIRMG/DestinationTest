@@ -13,11 +13,22 @@ class ViewController: UIViewController {
     
     let service = "myService"
     let account = "myAccount"
+    var pass = ""
+    @IBOutlet weak var paswordField: UILabel! {
+        didSet {
+            if paswordField == nil {
+                print("Label set to nil!")
+                // ^ SET A BREAKPOINT IN THIS LINE
+            } else {
+                print("label not nil")
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        //NotificationCenter.default.addObserver(self, selector: #selector(self.updateLabel), name: NSNotification.Name(rawValue: "updatePass"), object: nil)
         
         //retrieving for group
         
@@ -26,21 +37,20 @@ class ViewController: UIViewController {
             print("User Id: \(testUserId)")
             
             //saving in keychain
-            KeychainService.savePassword(service: service, account: account, data: testUserId)
+            KeychainService.updatePassword(service: service, account: account, data: testUserId)
             
         }
         
-        
-        
-        
-        
         //retrieving from keychain
-        let pass = KeychainService.loadPassword(service: service, account: account)
-        print("Retrieve pass \(pass)")
+        pass = KeychainService.loadPassword(service: service, account: account) ?? "error"
         
+        DispatchQueue.main.async {
+            self.paswordField.text = self.pass
+        }
         
     }
 
+ 
 
 }
 

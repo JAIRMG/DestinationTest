@@ -13,6 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+//    lazy var videoVC: ViewController = {
+//        let vc = ViewController()
+//        return vc
+//    }()
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -74,6 +79,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             print(queryStrings)
             //Change controller
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewControlleripad : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainController") as! ViewController
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = initialViewControlleripad
+            self.window?.makeKeyAndVisible()
+           
             //example:
             /*
              let vc = UIViewController()
